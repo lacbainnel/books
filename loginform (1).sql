@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 08:51 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Dec 01, 2021 at 02:23 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,23 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dogs`
---
-
-CREATE TABLE `dogs` (
-  `id` int(11) NOT NULL,
-  `dname` varchar(255) NOT NULL,
-  `breed` varchar(255) NOT NULL,
-  `age` varchar(255) NOT NULL,
-  `daddress` varchar(255) NOT NULL,
-  `color` varchar(255) NOT NULL,
-  `height` varchar(255) NOT NULL,
-  `dweight` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_authors`
 --
 
@@ -55,20 +38,33 @@ CREATE TABLE `tbl_authors` (
 --
 
 INSERT INTO `tbl_authors` (`id`, `name`, `status`) VALUES
-(1, 'Johnny Sins', 1),
-(2, 'Manta Mas', 1),
+(1, 'Johnny Sins', 0),
+(2, 'Manta Mas', 0),
 (3, 'Author1dasdasdas', 0),
-(4, 'Christopher', 1),
-(5, 'Monster Smoosh', 1),
+(4, 'Christopher', 0),
+(5, 'Monster Smoosh', 0),
 (6, 'Author1dasdasdas', 0),
 (7, 'Author1dasdasdas', 0),
 (8, 'James Gooch', 0),
-(9, 'Garden Flow', 1),
-(10, 'dasdasdasdas', 1),
-(11, 'sam', 1),
-(12, 'jagu', 1),
-(13, 'jaguss', 1),
-(14, 'james', 1);
+(9, 'Garden Flow', 0),
+(10, 'dasdasdasdas', 0),
+(11, 'sam', 0),
+(12, 'jagu', 0),
+(13, 'jaguss', 0),
+(14, 'james', 0),
+(15, 'Rick Riordan', 1),
+(16, 'Marie Lu', 1),
+(17, 'Jennifer Niven', 1),
+(18, 'Amy Zhang', 1),
+(19, 'Isaac Asimov', 1),
+(20, 'Jane Austen', 1),
+(21, 'Pseudonymous Bosch', 1),
+(22, 'Cassandra Clare', 1),
+(23, 'Khaled Hosseini', 1),
+(24, 'C.S. Lewis', 1),
+(25, 'Leigh Bardugo', 1),
+(26, 'J.K. Rowling', 1),
+(27, 'Anthony Aquino', 1);
 
 -- --------------------------------------------------------
 
@@ -95,14 +91,17 @@ CREATE TABLE `tbl_books` (
 --
 
 INSERT INTO `tbl_books` (`id`, `author`, `title`, `category`, `price`, `description`, `date_created`, `date_updated`, `status`, `image_id`, `quantity`) VALUES
-(1, '9', 'Rampage', 0, 'Rampage', 'Rampage', '2021-11-15 05:09:28', '2021-11-15 05:09:28', '1', 'book-Rampage.png', 0),
-(2, '4', 'test2', 0, 'test2', 'test', '2021-11-15 05:13:20', '2021-11-15 05:13:20', '1', '', 0),
-(3, '1', 'Test', 0, 'Test', '123456', '2021-11-15 05:35:25', '2021-11-15 05:35:25', '1', 'book-Test.jpg', 0),
-(4, '1', 'Sample', 0, 'Sample', 'Sample', '2021-11-15 05:39:50', '2021-11-15 05:39:50', '1', 'book-Sample.png', 0),
-(5, '1', '123', 0, '465', '4465465', '2021-11-15 07:35:48', '2021-11-15 07:35:48', '1', 'book-123.png', 0),
-(6, '5', 'Vampire Diaries', 0, '200', 'Vampire Description', '2021-11-15 09:05:45', '2021-11-15 09:05:45', '1', '', 0),
-(7, '4', 'Big Bang', 0, '200', 'Big Bang Desc', '2021-11-15 09:07:01', '2021-11-15 09:07:01', '1', 'book-Big Bang.jpg', 0),
-(8, '1', 'Twilight', 0, '200', 'No Desc', '2021-11-16 10:36:15', '2021-11-16 10:36:15', '1', 'book-Twilight.jpg', 0);
+(1, '17', 'All The Bright Places', 0, '$5', 'All the Bright Places is a young adult fiction novel by Jennifer Niven which is based on the author\'s personal story.', '2021-11-15 05:09:28', '2021-11-15 05:09:28', '1', 'book-All The Bright Places.jpg', 0),
+(2, '16', 'Young Elites', 0, '$5', 'The Young Elites is a series of dystopian fantasy young Adult novels written byMarie Lu. The books take audiences to a world where certain young people have developed powers that threaten to bring civilization to its knees.', '2021-11-15 05:13:20', '2021-11-15 05:13:20', '1', 'book-Young Elites.jpg', 0),
+(3, '18', 'Falling Into Place', 0, '$5', 'A moody, multi-layered debut, Falling Into Place by Amy Zhang is a complex addition to contemporary YA fiction. Only two people know that Liz Emerson was trying to die when she crashed her car on an icy turn after school.', '2021-11-15 05:35:25', '2021-11-15 05:35:25', '1', 'book-Falling Into Place.jpg', 0),
+(4, '19', 'The Foundation', 0, '$5', 'The Foundation series is a science fiction book series written by American author Isaac Asimov. ', '2021-11-15 05:39:50', '2021-11-15 05:39:50', '1', 'book-The Foundation.jpg', 0),
+(5, '15', 'The Lightning Thief', 0, '$5', 'The Lightning Thief is a light-hearted fantasy about a modern 12-year-old boy who learns that his true father is Poseidon, the Greek god of the sea. Percy sets out to become a hero by undertaking a quest across the United States to find the entrance to the Underworld and stop a war between the gods.', '2021-11-15 07:35:48', '2021-11-15 07:35:48', '1', 'book-The Lightning Thief.jpg', 0),
+(6, '20', 'Pride and Prejudice', 0, '$5', 'Pride and Prejudice is an 1813 romantic novel of manners written by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.', '2021-11-15 09:05:45', '2021-11-15 09:05:45', '1', 'book-Pride and Prejudice.jpg', 0),
+(7, '15', 'The Red Pyramid', 0, '$5', 'The Red Pyramid is a 2010 fantasy - adventure novel based on Egyptian mythology written by Rick Riordan. It is the first novel in The Kane Chronicles series.', '2021-11-15 09:07:01', '2021-11-15 09:07:01', '1', 'book-The Red Pyramid.jpg', 0),
+(8, '21', 'The Name of This Book Is Secret', 0, '200', 'The Name of this Book is Secret is a 2007 fantasy novel for young readers by Pseudonymous Bosch. It chronicles the adventures of two children, Cass and Max-Ernest, as they investigate the mysterious death of local magician Pietro Bergamo.', '2021-11-16 10:36:15', '2021-11-16 10:36:15', '1', 'book-The Name of This Book Is Secret.jpg', 0),
+(9, '23', 'The Kite Runner', 0, '$5', 'The story is set against a backdrop of tumultuous events, from the fall of Afghanistan\'s monarchy through the Soviet invasion, the exodus of refugees to Pakistan and the United States, and the rise of the Taliban regime.', '2021-11-30 06:10:13', '2021-11-30 06:10:13', '1', 'book-The Kite Runner.jpg', 0),
+(10, '16', 'Warcross', 0, '$5', 'Warcross is a young adult science fiction novel by Marie Lu, which was published on September 17, 2017 by G.P. Putnam\'s Sons. Warcross is the first book in the duology of the same name.', '2021-11-30 06:11:23', '2021-11-30 06:11:23', '1', 'book-Warcross.jpg', 0),
+(11, '16', 'Wildcard', 0, '$5', 'It\'s Time For Rematch', '2021-12-01 01:10:31', '2021-12-01 01:10:31', '1', 'book-Wildcard.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -216,7 +215,43 @@ INSERT INTO `tbl_logs` (`id`, `action`, `user`, `module`, `status`, `status_resu
 (131, 'login', 'hanma', 'login', 'success', 'logged in', 'admin', '2021-11-28 12:33:00'),
 (132, 'logout', 'hanma', 'Login', 'success', 'logged out', 'admin', '2021-11-28 12:37:55'),
 (133, 'login', 'hanma', 'login', 'success', 'logged in', 'user', '2021-11-28 12:38:00'),
-(134, 'logout', 'hanma', 'Login', 'success', 'logged out', 'user', '2021-11-29 00:02:20');
+(134, 'logout', 'hanma', 'Login', 'success', 'logged out', 'user', '2021-11-29 00:02:20'),
+(135, 'login', 'saitama', 'login', 'error', 'user not exists', '0', '2021-11-29 07:57:29'),
+(136, 'login', 'hanma', 'login', 'success', 'logged in', 'user', '2021-11-29 07:57:52'),
+(137, 'logout', 'hanma', 'Login', 'success', 'logged out', 'user', '2021-11-29 08:02:52'),
+(138, 'login', 'janny', 'login', 'success', 'logged in', 'user', '2021-11-29 08:02:55'),
+(139, 'logout', 'Janny', 'Login', 'success', 'logged out', 'user', '2021-11-29 08:05:22'),
+(140, 'login', 'janny', 'login', 'success', 'logged in', 'admin', '2021-11-29 08:05:28'),
+(141, 'logout', 'Janny', 'Login', 'success', 'logged out', 'admin', '2021-11-29 08:32:44'),
+(142, 'login', 'administrator', 'login', 'success', 'logged in', 'user', '2021-11-29 08:33:31'),
+(143, 'login', 'saitama', 'login', 'error', 'user not exists', '0', '2021-11-30 03:46:31'),
+(144, 'login', 'jannel', 'login', 'error', 'wrong password', '0', '2021-11-30 03:48:55'),
+(145, 'login', 'jannel', 'login', 'success', 'logged in', 'user', '2021-11-30 03:49:00'),
+(146, 'logout', 'jannel', 'Login', 'success', 'logged out', 'user', '2021-11-30 04:11:25'),
+(147, 'login', 'jannel', 'login', 'success', 'logged in', 'admin', '2021-11-30 04:11:30'),
+(148, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:27:07'),
+(149, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:27:16'),
+(150, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:27:21'),
+(151, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:28:57'),
+(152, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:29:07'),
+(153, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:29:17'),
+(154, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:29:30'),
+(155, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:29:46'),
+(156, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:31:21'),
+(157, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:31:51'),
+(158, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 04:32:10'),
+(159, 'logout', 'jannel', 'Login', 'success', 'logged out', 'admin', '2021-11-30 04:59:09'),
+(160, 'login', 'jannel', 'login', 'success', 'logged in', 'admin', '2021-11-30 05:52:34'),
+(161, 'create', 'jannel', 'Author', 'success', 'true', 'admin', '2021-11-30 06:17:40'),
+(162, 'logout', 'jannel', 'Login', 'success', 'logged out', 'admin', '2021-11-30 06:17:44'),
+(163, 'login', 'nanaba', 'login', 'success', 'logged in', 'user', '2021-11-30 06:34:13'),
+(164, 'login', 'jannel', 'login', 'success', 'logged in', 'admin', '2021-12-01 00:35:34'),
+(165, 'logout', 'jannel', 'Login', 'success', 'logged out', 'admin', '2021-12-01 00:43:19'),
+(166, 'login', 'gojo', 'login', 'success', 'logged in', 'user', '2021-12-01 00:58:45'),
+(167, 'logout', 'gojo', 'Login', 'success', 'logged out', 'user', '2021-12-01 01:03:50'),
+(168, 'login', 'sato', 'login', 'success', 'logged in', 'admin', '2021-12-01 01:03:54'),
+(169, 'create', 'sato', 'Author', 'success', 'true', 'admin', '2021-12-01 01:07:31'),
+(170, 'logout', 'sato', 'Login', 'success', 'logged out', 'admin', '2021-12-01 01:11:05');
 
 -- --------------------------------------------------------
 
@@ -235,7 +270,7 @@ CREATE TABLE `tbl_orderdetails` (
 --
 
 INSERT INTO `tbl_orderdetails` (`id`, `ord_lid`, `ords_id`) VALUES
-(1, 13, 1),
+(1, 19, 1),
 (2, 13, 5),
 (3, 13, 7),
 (7, 15, 2),
@@ -252,7 +287,18 @@ INSERT INTO `tbl_orderdetails` (`id`, `ord_lid`, `ords_id`) VALUES
 (18, 24, 3),
 (19, 25, 4),
 (20, 26, 4),
-(21, 27, 3);
+(21, 27, 3),
+(22, 28, 1),
+(23, 28, 2),
+(24, 28, 4),
+(25, 28, 8),
+(26, 29, 5),
+(27, 30, 2),
+(28, 31, 1),
+(29, 32, 10),
+(30, 33, 3),
+(31, 34, 1),
+(32, 34, 3);
 
 -- --------------------------------------------------------
 
@@ -291,14 +337,21 @@ INSERT INTO `tbl_orders` (`id`, `ord_id`, `ord_uid`, `date`) VALUES
 (17, '2021112123679', '12', '2021-11-21 19:29:19'),
 (18, '2021112195245', '11', '2021-11-21 19:31:39'),
 (19, '2021112195245', '10', '2021-11-21 19:31:39'),
-(20, '2021112126393', '11', '2021-11-21 19:32:47'),
+(20, '2021112126393', '10', '2021-11-21 19:32:47'),
 (21, '2021112181182', '12', '2021-11-21 19:34:14'),
 (22, '2021112144021', '11', '2021-11-21 19:34:39'),
 (23, '2021112149867', '11', '2021-11-21 19:34:49'),
 (24, '2021112241347', '10', '2021-11-22 03:48:15'),
 (25, '2021112745116', '11', '2021-11-27 21:25:29'),
 (26, '2021112712697', '11', '2021-11-27 21:25:37'),
-(27, '2021112840410', '12', '2021-11-27 23:23:31');
+(27, '2021112840410', '12', '2021-11-27 23:23:31'),
+(28, '2021112983663', '11', '2021-11-29 08:11:51'),
+(29, '2021112989230', '11', '2021-11-29 08:19:59'),
+(30, '2021112951191', '21', '2021-11-29 08:34:14'),
+(31, '<php?= $order_id ?>', '<php ?= $_SESSION[\'id\']; ?>', '2021-11-30 05:58:51'),
+(32, '<php?= $order_id ?>', '<php ?= $_SESSION[\'id\']; ?>', '2021-11-30 06:40:18'),
+(33, '2021120158237', '22', '2021-12-01 00:42:13'),
+(34, '2021120104594', '26', '2021-12-01 01:02:02');
 
 -- --------------------------------------------------------
 
@@ -368,31 +421,25 @@ CREATE TABLE `users_login` (
 --
 
 INSERT INTO `users_login` (`id`, `fname`, `lname`, `email`, `dob`, `contact`, `username`, `password`, `role`, `status`, `image`) VALUES
-(1, '', '', 'johncarlgabuat@yahoo.com', '', '', '', '09214554370', 2, 0, ''),
-(2, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 2, 0, ''),
-(3, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 1, 0, ''),
-(4, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 1, 0, ''),
-(5, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 1, 0, ''),
-(6, '', '', 'johncarlgabuat@gmail.com', '', '', 'ren', '123456789', 1, 0, ''),
-(7, '', '', 'rgabuat@ellickbposolutions.com', '', '', 'randy', '$2y$10$88Z9/YxWRolzSiINMfmHkeeGYfj4qagc3DuzAcf3AhwNZi2zKjnOa', 2, 0, ''),
-(8, '', '', 'reily@gmail.com', '', '', 'rezxy', '$2y$10$q26Szjis7dn.H4gtoFhibu6DpzBfEZNFNXOokUoDN5itZm7rx2LBu', 2, 0, ''),
-(9, '', '', 'j@ellickbposolutions.com', '', '', 'jon', '$2y$10$.TzB8FgLLWF/Vzefr0hTReIP0q/EWpWT/werbrJanUQ4YQtxFBioy', 2, 0, './uploads/profilejon.jpg'),
-(10, 'Cull ', 'Clause', 'jmas@yahoo.com', '', '', 'ron', '$2y$10$ev5GESKafThPAT7TkI6czOw0I.Ops2Zctw8401ZjPSadWTJIRwEb6', 2, 0, './uploads/profileron.jpg'),
-(11, 'Rollen', 'Gabuat1', 'acab@ellickbposolutions.com', '1996-10-19', '09563461261', 'hanma', '$2y$10$8nnU7vHNMSrHFuEQbk0M7.FtlTgpVAqd84tBD4OcnCcMLTdUjnWze', 2, 0, '11-1309903729.png'),
-(12, 'myriad', 'Test', 'jbon@ellickbposolutions.com', '', '', 'jensen', '$2y$10$JoRPZoGl2dZnZKk/lswDU.JBANBOGzCr4iTqhTNkzUz5vfBaJ44Qi', 2, 0, './uploads/profilejensen.jpeg'),
-(18, 'Sheldon', 'Cooper', 'shelly', '123456', '1996-10-19', 'scooper@gmail.com', '$2y$10$jdhSKWptndwgsJ/m0zL.I.kaCTJNp/nFD5Fh7bD2f1i9QMD.kZ0dC', 2, 0, ''),
-(19, 'raj', 'koot', 'rkoot@gmail.com', '1996-10-19', '09214554370', 'raj', '$2y$10$ci0rOvfxaSlEPngLjRaedOgZj6d9TpskRBRk4ShHF.ZxJnZ80rLy2', 2, 0, ''),
-(20, 'admin', 'book', 'admin@books.com', '1996-10-19', '09563461261', 'admin', '$2y$10$1t1pQN3J3/xKMaEKfJoRS.DHrnuHQ9czlmwKoD10lnO90TlM.kIfe', 1, 0, '');
+(1, '', '', 'johncarlgabuat@yahoo.com', '', '', '', '09214554370', 2, 1, ''),
+(2, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 2, 1, ''),
+(3, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 1, 1, ''),
+(4, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 1, 1, ''),
+(5, '', '', 'randolfhilarbo@gmail.com', '', '', '', 'test', 1, 1, ''),
+(6, '', '', 'johncarlgabuat@gmail.com', '', '', 'ren', '123456789', 1, 1, ''),
+(7, '', '', 'rgabuat@ellickbposolutions.com', '', '', 'randy', '$2y$10$88Z9/YxWRolzSiINMfmHkeeGYfj4qagc3DuzAcf3AhwNZi2zKjnOa', 2, 1, ''),
+(8, '', '', 'reily@gmail.com', '', '', 'rezxy', '$2y$10$q26Szjis7dn.H4gtoFhibu6DpzBfEZNFNXOokUoDN5itZm7rx2LBu', 2, 1, ''),
+(18, 'Sheldon', 'Cooper', 'shelly', '123456', '1996-10-19', 'scooper@gmail.com', '$2y$10$jdhSKWptndwgsJ/m0zL.I.kaCTJNp/nFD5Fh7bD2f1i9QMD.kZ0dC', 2, 1, ''),
+(19, 'raj', 'koot', 'rkoot@gmail.com', '1996-10-19', '09214554370', 'raj', '$2y$10$ci0rOvfxaSlEPngLjRaedOgZj6d9TpskRBRk4ShHF.ZxJnZ80rLy2', 2, 1, ''),
+(20, 'admin', 'book', 'admin@books.com', '1996-10-19', '09563461261', 'admin', '$2y$10$1t1pQN3J3/xKMaEKfJoRS.DHrnuHQ9czlmwKoD10lnO90TlM.kIfe', 1, 1, ''),
+(21, 'admin', 'istrator', 'administrator@gmail.com', '2021-11-06', '09214554370', 'administrator', '$2y$10$whSJxXzRKDcapJmQmthd.OJnEb0.NK6vxtlvd9s2oz9HeOb6V0Ue.', 2, 1, '21-67326204.jpg'),
+(22, 'Jannel', 'Lacbain', 'jlacbain@ellickbposolutions.com', '2001-06-06', '09109213377', 'cerrado', '$2y$10$6jMrM8t3T76LDBW37vrYYejgM6mWQ8TLN8PGKmWxyWAQ6eNsnOLwC', 1, 0, '22-2103344178.jpg'),
+(25, 'Nanaba', 'Ignacio', 'nanaba@gmail.com', '2014-02-04', '09109213376', 'nanaba', '$2y$10$BmJ3RFvcWOiiVpZ6P5rdgukmvPqAs0Q1cDZEIaGSAS1omCl8gO5x6', 2, 0, '25-918957995.jpg'),
+(26, 'Gojo', 'Sato', 'gojo@gmail.com', '1998-01-01', '09109213378', 'sato', '$2y$10$BptxHvO9z6p2mnSXKSA7qeDEdb6AC9dk/Fneb0vtl7NzWAVMSIzua', 1, 0, '26-426573257.jpg');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `dogs`
---
-ALTER TABLE `dogs`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_authors`
@@ -459,22 +506,16 @@ ALTER TABLE `users_login`
 --
 
 --
--- AUTO_INCREMENT for table `dogs`
---
-ALTER TABLE `dogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
 -- AUTO_INCREMENT for table `tbl_authors`
 --
 ALTER TABLE `tbl_authors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_books`
 --
 ALTER TABLE `tbl_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_cart`
@@ -492,19 +533,19 @@ ALTER TABLE `tbl_category`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT for table `tbl_orderdetails`
 --
 ALTER TABLE `tbl_orderdetails`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tbl_roles`
@@ -522,7 +563,7 @@ ALTER TABLE `tbl_status`
 -- AUTO_INCREMENT for table `users_login`
 --
 ALTER TABLE `users_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
